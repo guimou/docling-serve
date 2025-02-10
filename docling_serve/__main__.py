@@ -1,6 +1,5 @@
 import os
 
-from docling_serve.app import app
 from docling_serve.helper_functions import _str_to_bool
 
 # Launch the FastAPI server
@@ -11,7 +10,7 @@ if __name__ == "__main__":
     workers = int(os.getenv("UVICORN_WORKERS", "1"))
     reload = _str_to_bool(os.getenv("RELOAD", "False"))
     run(
-        app,
+        "docling_serve.app:app",
         host="0.0.0.0",
         port=port,
         workers=workers,
